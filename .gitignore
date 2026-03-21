@@ -1,0 +1,6 @@
+# Mac OS System Files
+.DS_Store
+
+# Chrome Extension Bundles
+*.zip
+*.crx

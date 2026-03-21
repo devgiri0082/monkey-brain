@@ -1,6 +1,10 @@
 const redirectIfHome = () => {
   if (window.location.pathname === '/' || window.location.pathname === '') {
-    window.location.replace('https://www.youtube.com/feed/subscriptions');
+    chrome.storage.local.get({ isActive: true }, (data) => {
+      if (data.isActive) {
+        window.location.replace('https://www.youtube.com/feed/subscriptions');
+      }
+    });
   }
 };
 
