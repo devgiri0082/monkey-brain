@@ -45,10 +45,9 @@ if [ -f "$BUILD_DIR/icon.png" ]; then
     sips -s format png -z 16 16 "$BUILD_DIR/icon.png" --out "$BUILD_DIR/icon16.png" > /dev/null
     sips -s format png -z 48 48 "$BUILD_DIR/icon.png" --out "$BUILD_DIR/icon48.png" > /dev/null
     sips -s format png -z 128 128 "$BUILD_DIR/icon.png" --out "$BUILD_DIR/icon128.png" > /dev/null
-    
-    # We remove the master icon from the built extension to save space, 
-    # since manifest.json only points to the specific sizes
-    rm "$BUILD_DIR/icon.png"
+    # We resize the master icon to a reasonable 128x128 inside the build to save space,
+    # as the source icon.png might be very high resolution.
+    sips -s format png -z 128 128 "$BUILD_DIR/icon.png" --out "$BUILD_DIR/icon.png" > /dev/null
 else
     echo "Warning: No master icon.png found in src/. Make sure you have one!"
 fi

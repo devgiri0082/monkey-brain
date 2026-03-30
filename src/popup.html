@@ -28,6 +28,16 @@
       padding-bottom: 16px;
       border-bottom: 1px solid #333;
     }
+    .header-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .logo {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
     .title {
       font-size: 16px;
       font-weight: 600;
@@ -50,6 +60,7 @@
       display: flex;
       flex-direction: column;
       gap: 3px;
+      flex-grow: 1;
     }
     .setting-title {
       font-size: 14px;
@@ -58,6 +69,22 @@
     .setting-desc {
       font-size: 11px;
       color: var(--subtext);
+    }
+    
+    /* Service Icons */
+    .service-icon {
+      width: 28px;
+      height: 28px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    .service-icon img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
     }
     
     /* Toggle Switch */
@@ -119,7 +146,10 @@
 </head>
 <body>
   <div class="header">
-    <div class="title">Monkey Brain</div>
+    <div class="header-left">
+      <img src="icon.png" class="logo" alt="Monkey Brain Logo">
+      <div class="title">Monkey Brain</div>
+    </div>
     <label class="switch">
       <input type="checkbox" id="isActive">
       <span class="slider"></span>
@@ -128,6 +158,9 @@
 
   <div id="individual-toggles">
     <div class="setting-row">
+      <div class="service-icon">
+        <img src="logos/facebook.svg" alt="Facebook Icon">
+      </div>
       <div class="setting-info">
         <span class="setting-title">Facebook Reels</span>
         <span class="setting-desc">Redirect to FB home</span>
@@ -139,6 +172,9 @@
     </div>
 
     <div class="setting-row">
+      <div class="service-icon">
+        <img src="logos/instagram.svg" alt="Instagram Icon">
+      </div>
       <div class="setting-info">
         <span class="setting-title">Instagram</span>
         <span class="setting-desc">Block Reels & Explore</span>
@@ -150,6 +186,9 @@
     </div>
 
     <div class="setting-row">
+      <div class="service-icon">
+        <img src="logos/youtube.svg" alt="YouTube Icon">
+      </div>
       <div class="setting-info">
         <span class="setting-title">YouTube Home</span>
         <span class="setting-desc">Redirect to subscriptions</span>
