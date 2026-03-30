@@ -4,3 +4,7 @@
 # Chrome Extension Bundles
 *.zip
 *.crx
+
+# Build Output
+dist/
+releases/
