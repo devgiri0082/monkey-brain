@@ -3,31 +3,70 @@
 <head>
   <meta charset="utf-8">
   <style>
+    :root {
+      --bg: #121212;
+      --card-bg: #1e1e1e;
+      --text: #eaeaea;
+      --subtext: #a0a0a0;
+      --accent: #4ade80; /* A calming green */
+      --danger: #ef4444;
+    }
     body {
-      width: 220px;
+      width: 250px;
       margin: 0;
       padding: 16px;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-      background-color: #1a1a1a;
-      color: #eaeaea;
+      background-color: var(--bg);
+      color: var(--text);
+      user-select: none;
+    }
+    .header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      user-select: none;
+      margin-bottom: 20px;
+      padding-bottom: 16px;
+      border-bottom: 1px solid #333;
     }
-    .label {
-      font-size: 15px;
-      font-weight: 500;
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+    }
+    .setting-row {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 8px;
+      margin-bottom: 12px;
+      padding: 10px 12px;
+      background: var(--card-bg);
+      border-radius: 10px;
+      transition: background 0.2s;
     }
-    /* Minimal iOS-style Premium Switch */
+    .setting-row:last-child {
+      margin-bottom: 0;
+    }
+    .setting-info {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+    }
+    .setting-title {
+      font-size: 14px;
+      font-weight: 500;
+    }
+    .setting-desc {
+      font-size: 11px;
+      color: var(--subtext);
+    }
+    
+    /* Toggle Switch */
     .switch {
       position: relative;
       display: inline-block;
-      width: 46px;
-      height: 26px;
+      width: 40px;
+      height: 22px;
+      flex-shrink: 0;
     }
     .switch input {
       opacity: 0;
@@ -43,37 +82,73 @@
       bottom: 0;
       background-color: #3f3f3f;
       transition: .3s cubic-bezier(0.4, 0.0, 0.2, 1);
-      border-radius: 26px;
+      border-radius: 22px;
     }
     .slider:before {
       position: absolute;
       content: "";
-      height: 20px;
-      width: 20px;
-      left: 3px;
-      bottom: 3px;
+      height: 18px;
+      width: 18px;
+      left: 2px;
+      bottom: 2px;
       background-color: #ffffff;
       transition: .3s cubic-bezier(0.4, 0.0, 0.2, 1);
       border-radius: 50%;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
     }
     input:checked + .slider {
-      background-color: #FF0000; /* YouTube Red */
+      background-color: var(--accent);
     }
     input:checked + .slider:before {
-      transform: translateX(20px);
+      transform: translateX(18px);
     }
-    input:focus + .slider {
-      box-shadow: 0 0 1px #FF0000;
+    input:disabled + .slider {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    /* Disabling global section when inactive */
+    #individual-toggles {
+      transition: opacity 0.3s;
+    }
+    .disabled-group {
+      opacity: 0.3;
+      pointer-events: none;
     }
   </style>
 </head>
 <body>
-  <div class="label">Auto-Redirect</div>
-  <label class="switch">
-    <input type="checkbox" id="toggleSwitch">
-    <span class="slider"></span>
-  </label>
+  <div class="header">
+    <div class="title">Monkey Brain</div>
+    <label class="switch">
+      <input type="checkbox" id="isActive">
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div id="individual-toggles">
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-title">Facebook Reels</span>
+        <span class="setting-desc">Redirect to FB home</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="fbReels">
+        <span class="slider"></span>
+      </label>
+    </div>
+
+    <div class="setting-row">
+      <div class="setting-info">
+        <span class="setting-title">YouTube Home</span>
+        <span class="setting-desc">Redirect to subscriptions</span>
+      </div>
+      <label class="switch">
+        <input type="checkbox" id="ytHome">
+        <span class="slider"></span>
+      </label>
+    </div>
+  </div>
 
   <script src="popup.js"></script>
 </body>

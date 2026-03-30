@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "YouTube Home to Subscriptions",
-  "short_name": "YT to Subs",
-  "version": "1.0.0",
-  "description": "Automatically and instantly redirects the YouTube homepage to your subscriptions feed.",
+  "name": "Monkey Brain",
+  "short_name": "Monkey Brain",
+  "version": "1.1.0",
+  "description": "Tame your monkey brain by blocking addictive short-form content like Facebook Reels and algorithmic homepages.",
   "icons": {
     "16": "icon16.png",
     "48": "icon48.png",
@@ -20,7 +20,9 @@
     {
       "matches": [
         "https://www.youtube.com/*",
-        "https://youtube.com/*"
+        "https://youtube.com/*",
+        "https://www.facebook.com/*",
+        "https://facebook.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"
