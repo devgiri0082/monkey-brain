@@ -12,15 +12,15 @@ const RULES = [
     redirect: "https://www.facebook.com/"
   },
   {
-    id: "igReels",
+    id: "instagram",
     host: "www.instagram.com",
-    test: () => window.location.pathname.startsWith('/reels/'),
+    test: () => window.location.pathname.startsWith('/reels/') || window.location.pathname.startsWith('/explore/'),
     redirect: "https://www.instagram.com/"
   }
 ];
 
 const checkAndRedirect = () => {
-  chrome.storage.local.get({ isActive: true, ytHome: true, fbReels: true, igReels: true }, (settings) => {
+  chrome.storage.local.get({ isActive: true, ytHome: true, fbReels: true, instagram: true }, (settings) => {
     // If master switch is off, do nothing
     if (!settings.isActive) return;
 
