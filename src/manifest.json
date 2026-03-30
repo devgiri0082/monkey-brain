@@ -22,7 +22,9 @@
         "https://www.youtube.com/*",
         "https://youtube.com/*",
         "https://www.facebook.com/*",
-        "https://facebook.com/*"
+        "https://facebook.com/*",
+        "https://www.instagram.com/*",
+        "https://instagram.com/*"
       ],
       "js": ["content.js"],
       "run_at": "document_start"
